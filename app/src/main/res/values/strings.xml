@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">careHack</string>
+
+    <string name="title_activity_patient_options">patientOptions</string>
+    <string name="contact_front_desk">Contact front desk</string>
+    <string name="gender_prompt"> Gender</string>
+    <string-array name="gender_arrays">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Refuse to answer</item>
+    </string-array>
+    <string name="condition_prompt"> Patient condition</string>
+    <string-array name="condition_arrays">
+        <item>Casual</item>
+        <item>Chronic ailment</item>
+    </string-array>
+    <string name="doctor_prompt"> Choose a doctor</string>
+    <string name="date"> Pick a date:</string>
+    <string name="successMessage">Appointment booked successfully.</string>
+    <string name="successDate">Date: 29/11/2017</string>
+    <string name="successTime">Time: 10:30</string>
+    <string name="successDoc">Dr. Watson</string>
+    <string name="calendarSuccess">Event added to Calendar.</string>
+    <string name="reg">Patient Registration</string>
+    <string name="auto_booking">Auto-booking (for chronic ailment)</string>
+    <string name="submit">Submit</string>
+    <string name="carehack_clinic">careHack Clinic</string>
+    <string-array name="doctor_arrays">
+        <item>Dr. Watson (General)</item>
+        <item>Dr. Annie (Orthopedic)</item>
+        <item>Dr. Steve (Cardiologist)</item>
+    </string-array>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.idz.carehack.contact"
+    android:background="#1d97f9">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="-15dp"
+        android:layout_marginTop="35dp"
+        android:shadowColor="#000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.5"
+        android:text="@string/carehack_clinic"
+        android:textColor="#fff"
+        android:textSize="35sp" />
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="35dp">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            app:srcCompat="@drawable/phone"
+            android:layout_marginRight="10dp"
+            />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="0.5"
+            android:text=" +91 9947000831"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:clickable="true"
+            android:onClick="call"/>
+    </TableRow>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="-30dp"
+        android:shadowColor="#000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.5"
+        android:text=" +91 9947000831"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:clickable="true"
+        android:onClick="call"/>
+</LinearLayout>

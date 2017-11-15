@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.idz.carehack.register2patient"
+    android:background="#1d97f9">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="35dp"
+        android:shadowColor="#000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="0.5"
+        android:text="@string/reg"
+        android:textColor="#fff"
+        android:textSize="25sp" />
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="  Username"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#b9d1d4"
+        android:backgroundTint="#fff"/>
+    <EditText
+        android:id="@+id/pwd"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="  Password"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#b9d1d4"
+        android:backgroundTint="#fff"/>
+
+
+    <Spinner
+        android:id="@+id/gen"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:entries="@array/gender_arrays"
+        android:prompt="@string/gender_prompt" />
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:hint="  Age"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#b9d1d4"
+        android:backgroundTint="#fff"/>
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="#b9d1d4"
+        android:backgroundTint="#fff"
+        android:inputType="textPostalAddress"
+        android:hint="Address"/>
+
+    <Spinner
+        android:id="@+id/type"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:entries="@array/condition_arrays"
+        android:prompt="@string/condition_prompt" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round"
+        android:text="Next"
+        android:textSize="10dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

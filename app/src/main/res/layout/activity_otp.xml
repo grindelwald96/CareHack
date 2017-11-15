@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#1d97f9"
+    android:layout_height="match_parent"
+    tools:context="com.example.idz.carehack.otp">
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="#fff"
+        android:ems="10"
+        android:hint=" Phone"
+        android:inputType="phone"
+        android:textColorHint="#b9d1d4" />
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round"
+        android:text="Submit"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/otptext"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="  Enter OTP"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:textColorHint="#b9d1d4"
+        android:backgroundTint="#fff"/>
+    <Button
+        android:id="@+id/otpbutton"
+        android:visibility="gone"
+        android:inputType="number"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round"
+        android:text="Submit"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

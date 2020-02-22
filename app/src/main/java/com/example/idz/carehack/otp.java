@@ -4,9 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,13 +31,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.concurrent.TimeUnit;
 
 public class otp extends AppCompatActivity {
-    Button button1,otpbutton;
-    EditText phone,otptext;
+    Button button1, otpbutton;
+    EditText phone, otptext;
     Bundle bundle;
     FirebaseAuth mAuth;
-    DatabaseReference databaseReference,patientid;
+    DatabaseReference databaseReference, patientid;
     SharedPreferences sharedPreferences;
-    int count=0;
+    int count = 0;
 
     ProgressDialog progressDialog;
 
@@ -51,17 +51,16 @@ public class otp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
-        bundle=getIntent().getExtras();
+        bundle = getIntent().getExtras();
 
-        patientid=FirebaseDatabase.getInstance().getReference();
+        patientid = FirebaseDatabase.getInstance().getReference();
         patientid.child("PatientRecords").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot s:dataSnapshot.getChildren())
-                {
+                for (DataSnapshot s : dataSnapshot.getChildren()) {
                     count++;
                 }
-                System.out.println("count "+count);
+                System.out.println("count " + count);
 
             }
 
@@ -70,20 +69,20 @@ public class otp extends AppCompatActivity {
 
             }
         });
-        sharedPreferences=getSharedPreferences("myfile", Context.MODE_PRIVATE);
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+        sharedPreferences = getSharedPreferences("myfile", Context.MODE_PRIVATE);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         //databaseReference.child("test").setValue("askjndskjsd");
 
-        progressDialog=new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
 
-        button1=(Button)findViewById(R.id.button1);
+        button1 = findViewById(R.id.button1);
 
-        otpbutton = (Button) findViewById((R.id.otpbutton));
+        otpbutton = findViewById((R.id.otpbutton));
 
-        phone = (EditText) findViewById(R.id.editText1);
+        phone = findViewById(R.id.editText1);
 
-        otptext = (EditText) findViewById(R.id.otptext);
+        otptext = findViewById(R.id.otptext);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -95,7 +94,7 @@ public class otp extends AppCompatActivity {
                 mVerificationInProgress = false;
 
                 progressDialog.hide();
-                Toast.makeText(otp.this,"Verification completed", Toast.LENGTH_LONG).show();
+                Toast.makeText(otp.this, "Verification completed", Toast.LENGTH_LONG).show();
 
                 signInWithPhoneAuthCredential(credential);
 
@@ -105,17 +104,17 @@ public class otp extends AppCompatActivity {
             public void onVerificationFailed(FirebaseException e) {
 
                 progressDialog.hide();
-                Toast.makeText(otp.this,"Verification failed "+e+"",Toast.LENGTH_LONG).show();
-                System.out.println(" "+e+" ");
+                Toast.makeText(otp.this, "Verification failed " + e + "", Toast.LENGTH_LONG).show();
+                System.out.println(" " + e + " ");
 
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
                     // ...
-                    Toast.makeText(otp.this,"Invalid Phone Number",Toast.LENGTH_LONG).show();
+                    Toast.makeText(otp.this, "Invalid Phone Number", Toast.LENGTH_LONG).show();
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
                     // ...
-                    Toast.makeText(otp.this,"Quota Over",Toast.LENGTH_LONG).show();
+                    Toast.makeText(otp.this, "Quota Over", Toast.LENGTH_LONG).show();
                 }
 
                 // Show a message and update the UI
@@ -127,7 +126,7 @@ public class otp extends AppCompatActivity {
                                    PhoneAuthProvider.ForceResendingToken token) {
 
                 progressDialog.hide();
-                Toast.makeText(otp.this,"Verification code sent ",Toast.LENGTH_LONG).show();
+                Toast.makeText(otp.this, "Verification code sent ", Toast.LENGTH_LONG).show();
                 mVerificationId = verificationId;
                 mResendToken = token;
                 button1.setVisibility(View.GONE);
@@ -145,7 +144,7 @@ public class otp extends AppCompatActivity {
                 progressDialog.show();
 
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        "+91"+phone.getText().toString(),        // Phone number to verify
+                        "+91" + phone.getText().toString(),        // Phone number to verify
                         60,                 // Timeout duration
                         TimeUnit.SECONDS,   // Unit of timeout
                         otp.this,               // Activity (for callback binding)
@@ -181,15 +180,15 @@ public class otp extends AppCompatActivity {
                             FirebaseUser user = task.getResult().getUser();
                             mAuth.signOut();
                             databaseReference.child("PatientRecords").child(user.getUid()).child("Name").setValue(bundle.getString("username"));
-                            databaseReference.child("PatientRecords").child(user.getUid()).child("patientid").setValue(""+(2000+count));
+                            databaseReference.child("PatientRecords").child(user.getUid()).child("patientid").setValue("" + (2000 + count));
                             databaseReference.child("PatientRecords").child(user.getUid()).child("Gender").setValue(bundle.getString("gender"));
-                            databaseReference.child("PatientRecords").child(user.getUid()).child("Age").setValue(bundle.getInt("age")+"");
-                            SharedPreferences.Editor ed=sharedPreferences.edit();
-                            ed.putString("userid",""+user.getUid());
-                            ed.putString("patientid",""+(2000+count));
-                            ed.putString("flag","true");
+                            databaseReference.child("PatientRecords").child(user.getUid()).child("Age").setValue(bundle.getInt("age") + "");
+                            SharedPreferences.Editor ed = sharedPreferences.edit();
+                            ed.putString("userid", "" + user.getUid());
+                            ed.putString("patientid", "" + (2000 + count));
+                            ed.putString("flag", "true");
                             ed.apply();
-                            Intent i=new Intent(otp.this,patientOptions.class);
+                            Intent i = new Intent(otp.this, patientOptions.class);
                             startActivity(i);
                             // ...
                         } else {

@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">careHack</string>
 
-    <string name="title_activity_patient_options">patientOptions</string>
-    <string name="contact_front_desk">Contact front desk</string>
     <string name="gender_prompt"> Gender</string>
     <string-array name="gender_arrays">
         <item>Male</item>

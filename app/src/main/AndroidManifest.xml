@@ -19,18 +19,15 @@
         <activity android:name=".register2patient" />
         <activity android:name=".contact" />
         <activity android:name=".eventsuccess" />
-
         <activity android:name=".splash">
             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-            <activity android:name=".book" >
-
-        </activity>
-        <activity android:name=".history"></activity>
+        <activity android:name=".book" />
+        <activity android:name=".history" />
     </application>
 
 </manifest>

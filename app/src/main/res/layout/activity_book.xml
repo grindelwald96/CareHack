@@ -54,7 +54,7 @@
         android:textColorHint="#b9d1d4"
         android:backgroundTint="#fff"
         android:textIsSelectable="true"
-        />
+        android:focusable="true" />
 
     <Button
         android:id="@+id/button"

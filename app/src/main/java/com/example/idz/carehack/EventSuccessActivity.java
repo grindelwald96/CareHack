@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class eventsuccess extends AppCompatActivity {
+public class EventSuccessActivity extends AppCompatActivity {
     Bundle bundle;
     Button ok;
     String doc = "", dt = "", d = "";
@@ -27,7 +27,7 @@ public class eventsuccess extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), patientOptions.class);
+                Intent i = new Intent(getApplicationContext(), PatientOptionsActivity.class);
                 startActivity(i);
             }
         });

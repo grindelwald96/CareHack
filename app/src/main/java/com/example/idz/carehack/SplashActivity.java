@@ -9,9 +9,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class splash extends AppCompatActivity {
-    SharedPreferences sh;
-    String flag = "";
+public class SplashActivity extends AppCompatActivity {
+    private String flag = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +18,13 @@ public class splash extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             int UI_OPTIONS = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
             getWindow().getDecorView().setSystemUiVisibility(UI_OPTIONS);
-            sh = getSharedPreferences("myfile", Context.MODE_PRIVATE);
+            SharedPreferences sh = getSharedPreferences("myfile", Context.MODE_PRIVATE);
             flag = sh.getString("flag", "false");
             new splashAsync().execute();
         }
         setContentView(R.layout.activity_splash);
 
-        //Intent intent = new Intent(getApplicationContext(), register2patient.class);
+        //Intent intent = new Intent(getApplicationContext(), PatientRegistrationActivity.class);
         //startActivity(intent);
     }
 
@@ -45,10 +44,10 @@ public class splash extends AppCompatActivity {
         protected void onPostExecute(Object o) {
             super.onPostExecute(o);
             if (flag.equals("false")) {
-                Intent intent = new Intent(getApplicationContext(), register2patient.class);
+                Intent intent = new Intent(getApplicationContext(), PatientRegistrationActivity.class);
                 startActivity(intent);
             } else {
-                Intent intent = new Intent(getApplicationContext(), patientOptions.class);
+                Intent intent = new Intent(getApplicationContext(), PatientOptionsActivity.class);
                 startActivity(intent);
             }
         }

@@ -30,12 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
-public class otp extends AppCompatActivity {
-    Button button1, otpbutton;
-    EditText phone, otptext;
+public class OtpActivity extends AppCompatActivity {
+    Button button1, otpButton;
+    EditText phone, otpText;
     Bundle bundle;
     FirebaseAuth mAuth;
-    DatabaseReference databaseReference, patientid;
+    DatabaseReference databaseReference, patientId;
     SharedPreferences sharedPreferences;
     int count = 0;
 
@@ -53,8 +53,8 @@ public class otp extends AppCompatActivity {
         setContentView(R.layout.activity_otp);
         bundle = getIntent().getExtras();
 
-        patientid = FirebaseDatabase.getInstance().getReference();
-        patientid.child("PatientRecords").addValueEventListener(new ValueEventListener() {
+        patientId = FirebaseDatabase.getInstance().getReference();
+        patientId.child("PatientRecords").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot s : dataSnapshot.getChildren()) {
@@ -78,11 +78,11 @@ public class otp extends AppCompatActivity {
 
         button1 = findViewById(R.id.button1);
 
-        otpbutton = findViewById((R.id.otpbutton));
+        otpButton = findViewById((R.id.otpbutton));
 
         phone = findViewById(R.id.editText1);
 
-        otptext = findViewById(R.id.otptext);
+        otpText = findViewById(R.id.otptext);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -94,7 +94,7 @@ public class otp extends AppCompatActivity {
                 mVerificationInProgress = false;
 
                 progressDialog.hide();
-                Toast.makeText(otp.this, "Verification completed", Toast.LENGTH_LONG).show();
+                Toast.makeText(OtpActivity.this, "Verification completed", Toast.LENGTH_LONG).show();
 
                 signInWithPhoneAuthCredential(credential);
 
@@ -104,17 +104,17 @@ public class otp extends AppCompatActivity {
             public void onVerificationFailed(FirebaseException e) {
 
                 progressDialog.hide();
-                Toast.makeText(otp.this, "Verification failed " + e + "", Toast.LENGTH_LONG).show();
+                Toast.makeText(OtpActivity.this, "Verification failed " + e + "", Toast.LENGTH_LONG).show();
                 System.out.println(" " + e + " ");
 
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
                     // ...
-                    Toast.makeText(otp.this, "Invalid Phone Number", Toast.LENGTH_LONG).show();
+                    Toast.makeText(OtpActivity.this, "Invalid Phone Number", Toast.LENGTH_LONG).show();
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
                     // ...
-                    Toast.makeText(otp.this, "Quota Over", Toast.LENGTH_LONG).show();
+                    Toast.makeText(OtpActivity.this, "Quota Over", Toast.LENGTH_LONG).show();
                 }
 
                 // Show a message and update the UI
@@ -126,13 +126,13 @@ public class otp extends AppCompatActivity {
                                    PhoneAuthProvider.ForceResendingToken token) {
 
                 progressDialog.hide();
-                Toast.makeText(otp.this, "Verification code sent ", Toast.LENGTH_LONG).show();
+                Toast.makeText(OtpActivity.this, "Verification code sent ", Toast.LENGTH_LONG).show();
                 mVerificationId = verificationId;
                 mResendToken = token;
                 button1.setVisibility(View.GONE);
                 phone.setVisibility(View.GONE);
-                otptext.setVisibility(View.VISIBLE);
-                otpbutton.setVisibility(View.VISIBLE);
+                otpText.setVisibility(View.VISIBLE);
+                otpButton.setVisibility(View.VISIBLE);
                 // ...
             }
         };
@@ -140,14 +140,14 @@ public class otp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Toast.makeText(otp.this, "dsffds", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(OtpActivity.this, "dsffds", Toast.LENGTH_SHORT).show();
                 progressDialog.show();
 
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                         "+91" + phone.getText().toString(),        // Phone number to verify
                         60,                 // Timeout duration
                         TimeUnit.SECONDS,   // Unit of timeout
-                        otp.this,               // Activity (for callback binding)
+                        OtpActivity.this,               // Activity (for callback binding)
                         mCallbacks);        // OnVerificationStateChangedCallbacks
 
 
@@ -155,11 +155,11 @@ public class otp extends AppCompatActivity {
         });
 
 
-        otpbutton.setOnClickListener(new View.OnClickListener() {
+        otpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, otptext.getText().toString());
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, otpText.getText().toString());
 
                 signInWithPhoneAuthCredential(credential);
 
@@ -176,26 +176,26 @@ public class otp extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
 
-                            Toast.makeText(otp.this, "Verification done", Toast.LENGTH_LONG).show();
+                            Toast.makeText(OtpActivity.this, "Verification done", Toast.LENGTH_LONG).show();
                             FirebaseUser user = task.getResult().getUser();
                             mAuth.signOut();
                             databaseReference.child("PatientRecords").child(user.getUid()).child("Name").setValue(bundle.getString("username"));
-                            databaseReference.child("PatientRecords").child(user.getUid()).child("patientid").setValue("" + (2000 + count));
+                            databaseReference.child("PatientRecords").child(user.getUid()).child("patientId").setValue("" + (2000 + count));
                             databaseReference.child("PatientRecords").child(user.getUid()).child("Gender").setValue(bundle.getString("gender"));
                             databaseReference.child("PatientRecords").child(user.getUid()).child("Age").setValue(bundle.getInt("age") + "");
                             SharedPreferences.Editor ed = sharedPreferences.edit();
                             ed.putString("userid", "" + user.getUid());
-                            ed.putString("patientid", "" + (2000 + count));
+                            ed.putString("patientId", "" + (2000 + count));
                             ed.putString("flag", "true");
                             ed.apply();
-                            Intent i = new Intent(otp.this, patientOptions.class);
+                            Intent i = new Intent(OtpActivity.this, PatientOptionsActivity.class);
                             startActivity(i);
                             // ...
                         } else {
                             // Sign in failed, display a message and update the UI
                             //Log.w(TAG, "signInWithCredential:failure", task.getException());
 
-                            Toast.makeText(otp.this, "Invalid code", Toast.LENGTH_LONG).show();
+                            Toast.makeText(OtpActivity.this, "Invalid code", Toast.LENGTH_LONG).show();
 
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid

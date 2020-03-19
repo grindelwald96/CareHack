@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#1d97f9"
-    tools:context="com.example.idz.carehack.history">
+    tools:context="com.example.idz.carehack.HistoryActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_gravity="center"
@@ -13,7 +13,7 @@
         android:textSize="30sp"
         android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
-        android:text="Appointment history"
+        android:text="@string/appointment_history"
         android:textStyle="bold"
         android:shadowDx="1"
         android:shadowDy="1"

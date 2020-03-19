@@ -10,10 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.PhoneAuthProvider;
-
-public class register2patient extends AppCompatActivity {
+public class PatientRegistrationActivity extends AppCompatActivity {
     Button button;
     String uname, gender, address, pass, patientType, s = "";
     int age;
@@ -22,11 +19,6 @@ public class register2patient extends AppCompatActivity {
     EditText e4;
     EditText e5;
     Spinner g;
-    FirebaseAuth mAuth;
-    boolean mVerificationInProgress = false;
-    String mVerificationId;
-    PhoneAuthProvider.ForceResendingToken mResendToken;
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +34,7 @@ public class register2patient extends AppCompatActivity {
             public void onClick(View v) {
                 s = e.getText().toString();
                 if (TextUtils.isEmpty(s)) {
-                    Toast.makeText(register2patient.this, "Enter a valid username!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientRegistrationActivity.this, "Enter a valid username!", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     uname = s;
@@ -50,14 +42,14 @@ public class register2patient extends AppCompatActivity {
 
                 s = e5.getText().toString();
                 if (TextUtils.isEmpty(s)) {
-                    Toast.makeText(register2patient.this, "Enter a valid password!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientRegistrationActivity.this, "Enter a valid password!", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     pass = s;
                 }
                 s = e3.getText().toString();
                 if (TextUtils.isEmpty(s)) {
-                    Toast.makeText(register2patient.this, "Enter a valid Age!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientRegistrationActivity.this, "Enter a valid Age!", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     age = Integer.parseInt(s);
@@ -67,15 +59,15 @@ public class register2patient extends AppCompatActivity {
                 gender = g.getSelectedItem().toString();
                 s = e4.getText().toString();
                 if (TextUtils.isEmpty(s)) {
-                    Toast.makeText(register2patient.this, "Enter a valid Address!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PatientRegistrationActivity.this, "Enter a valid Address!", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     address = s;
                 }
                 g = findViewById(R.id.type);
                 patientType = g.getSelectedItem().toString();
-                Toast.makeText(register2patient.this, patientType, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), otp.class);
+                Toast.makeText(PatientRegistrationActivity.this, patientType, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), OtpActivity.class);
                 intent.putExtra("username", uname);
                 intent.putExtra("password", pass);
                 intent.putExtra("gender", gender);

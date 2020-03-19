@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.idz.carehack.patientOptions"
+    tools:context="com.example.idz.carehack.PatientOptionsActivity"
     android:background="#1d97f9">
 
     <TableRow
@@ -18,33 +18,35 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="careHack"
-            android:textColor="#1a7e11"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:text="@string/app_name"
+            android:textColor="#1a7e11" />
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="3dp"
-            app:srcCompat="@drawable/steth" />
+            android:layout_marginStart="3dp"
+            app:srcCompat="@drawable/steth"
+            android:contentDescription="@string/todo" />
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Watson"
-            android:textStyle="bold"
-            android:textColor="#1d97f9"
+            android:layout_marginStart="170dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="170dp"/>
+            android:textColor="#1d97f9"
+            android:textStyle="bold" />
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/patient" />
+            android:layout_marginStart="10dp"
+            app:srcCompat="@drawable/patient"
+            android:contentDescription="@string/todo" />
     </TableRow>
 
     <Button
@@ -52,10 +54,10 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/round"
-        android:text="Book appointment"
+        android:text="@string/book_appointment"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textAllCaps="false"/>
 
     <Button
@@ -65,9 +67,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:background="@drawable/round"
-        android:text="Appointment history"
+        android:text="@string/appointment_history"
         android:textAllCaps="false"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/button3"
@@ -76,8 +78,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:background="@drawable/round"
-        android:text="Contact front desk"
+        android:text="@string/contact_front_desk"
         android:textAllCaps="false"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

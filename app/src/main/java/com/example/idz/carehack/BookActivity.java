@@ -27,7 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.Date;
 
-public class book extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, CompoundButton.OnCheckedChangeListener {
+public class BookActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, CompoundButton.OnCheckedChangeListener {
     DatePickerDialog datePickerDialog;
     Button b;
     EditText d;
@@ -57,9 +57,9 @@ public class book extends AppCompatActivity implements DatePickerDialog.OnDateSe
         databaseReference = FirebaseDatabase.getInstance().getReference();
         databaseReference.child("skjsdkj").setValue("ndjdjd");
         if (s != null) {
-            s.setOnCheckedChangeListener(book.this);
+            s.setOnCheckedChangeListener(BookActivity.this);
         }
-        datePickerDialog = new DatePickerDialog(this, book.this, year, month, day);
+        datePickerDialog = new DatePickerDialog(this, BookActivity.this, year, month, day);
         datePickerDialog.getDatePicker().setMinDate(be.getTimeInMillis());
         d.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,7 @@ public class book extends AppCompatActivity implements DatePickerDialog.OnDateSe
                 String uid = "";
                 String pid = "";
                 uid = sp.getString("userid", "uhh");
-                pid = sp.getString("patientid", "knn");
+                pid = sp.getString("patientId", "knn");
                 db.child("appointmentRecords").child(uid).child("patientID").setValue(pid);
                 db.child("appointmentRecords").child(uid).child("date").setValue(begin.get(Calendar.DAY_OF_MONTH) + "/" + begin.get(Calendar.MONTH) + "/" + begin.get(Calendar.YEAR));
                 ContentResolver cr = getContentResolver();
@@ -94,7 +94,7 @@ public class book extends AppCompatActivity implements DatePickerDialog.OnDateSe
                 cv.put(CalendarContract.Events.EVENT_TIMEZONE, Calendar.getInstance().getTimeZone().getID());
                 @SuppressLint("MissingPermission") Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, cv);
                 Toast.makeText(getApplicationContext(), "Event added successfully", Toast.LENGTH_SHORT);
-                Intent i = new Intent(getApplicationContext(), eventsuccess.class);
+                Intent i = new Intent(getApplicationContext(), EventSuccessActivity.class);
                 i.putExtra("doctor", doc);
                 i.putExtra("date", dt);
                 startActivity(i);

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.idz.carehack.book"
+    tools:context="com.example.idz.carehack.BookActivity"
     android:background="#1d97f9">
 
     <Switch
@@ -36,7 +36,7 @@
         android:textSize="20sp"
         android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
-        android:text="@string/date"
+        android:text="@string/date_prompt"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="0.5"

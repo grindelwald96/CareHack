@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#1d97f9"
-    tools:context="com.example.idz.carehack.eventsuccess">
+    tools:context="com.example.idz.carehack.EventSuccessActivity">
 
     <TableRow
         android:layout_width="wrap_content"
@@ -20,7 +20,8 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             app:srcCompat="@drawable/tick"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/text"
@@ -30,7 +31,7 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="0.5"
-            android:text="@string/successMessage"
+            android:text="@string/success_message"
             android:textColor="#03630b"
             android:textSize="25sp" />
     </TableRow>
@@ -46,7 +47,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="0.5"
-        android:text="@string/successDate"
+        android:text="@string/success_date"
         android:textColor="#fff"
         android:textSize="25sp" />
     <TextView
@@ -60,7 +61,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="0.5"
-        android:text="@string/successTime"
+        android:text="@string/success_time"
         android:textColor="#fff"
         android:textSize="25sp" />
     <TextView
@@ -74,7 +75,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="0.5"
-        android:text="@string/successDoc"
+        android:text="@string/success_doc"
         android:textColor="#fff"
         android:textSize="25sp" />
     <TextView
@@ -88,7 +89,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="0.5"
-        android:text="@string/calendarSuccess"
+        android:text="@string/calendar_success"
         android:textColor="#fff"
         android:textSize="25sp" />
     <Button
@@ -97,7 +98,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:background="@drawable/round"
-        android:text="OK"
+        android:text="@string/ok"
         android:textSize="13sp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"/>

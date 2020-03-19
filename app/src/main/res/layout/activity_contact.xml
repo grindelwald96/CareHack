@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.idz.carehack.contact"
+    tools:context="com.example.idz.carehack.ContactActivity"
     android:background="#1d97f9">
     <TextView
         android:id="@+id/text1"
@@ -34,37 +34,39 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             app:srcCompat="@drawable/phone"
-            android:layout_marginRight="10dp"
-            />
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/text2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="call"
             android:shadowColor="#000"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="0.5"
-            android:text=" +91 9947000831"
+            android:text="@string/phone_number"
             android:textColor="#fff"
-            android:textSize="25sp"
-            android:clickable="true"
-            android:onClick="call"/>
+            android:textSize="25sp" />
     </TableRow>
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="-30dp"
         android:shadowColor="#000"
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="0.5"
-        android:text=" +91 9947000831"
+        android:text="@string/phone_number"
         android:textColor="#fff"
         android:textSize="25sp"
         android:clickable="true"
-        android:onClick="call"/>
+        android:onClick="call"
+        android:focusable="true" />
 </LinearLayout>

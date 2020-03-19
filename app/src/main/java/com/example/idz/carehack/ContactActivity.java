@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-public class contact extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity {
 
     public void call(View view) {
         Toast.makeText(this, "sxaCdas", Toast.LENGTH_SHORT).show();

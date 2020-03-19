@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class patientOptions extends AppCompatActivity {
+public class PatientOptionsActivity extends AppCompatActivity {
     Button b, contact, hist;
 
     @Override
@@ -19,7 +19,7 @@ public class patientOptions extends AppCompatActivity {
         hist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent n = new Intent(getApplicationContext(), history.class);
+                Intent n = new Intent(getApplicationContext(), HistoryActivity.class);
                 startActivity(n);
             }
         });
@@ -27,14 +27,14 @@ public class patientOptions extends AppCompatActivity {
         contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent n = new Intent(getApplicationContext(), contact.class);
+                Intent n = new Intent(getApplicationContext(), ContactActivity.class);
                 startActivity(n);
             }
         });
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), book.class);
+                Intent i = new Intent(getApplicationContext(), BookActivity.class);
                 startActivity(i);
             }
         });

@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class history extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
     SharedPreferences sp;
     String uid = "";
     DatabaseReference db;
@@ -34,7 +34,7 @@ public class history extends AppCompatActivity {
         list = new ArrayList<String>();
         ls = findViewById(R.id.list);
         sp = getSharedPreferences("myfile", Context.MODE_PRIVATE);
-        uid = sp.getString("patientid", "200");
+        uid = sp.getString("patientId", "200");
         //System.out.println("Test"+uid);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading..");
@@ -62,7 +62,7 @@ public class history extends AppCompatActivity {
         });
         String[] arr = {"antony", "simpson", "abhi"};
         System.out.println("size " + i);
-        // String [] array=history.list.toArray(new String[history.list.size()]);
+        // String [] array=HistoryActivity.list.toArray(new String[HistoryActivity.list.size()]);
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arr);
         ls.setAdapter(adapter);

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">careHack</string>
+    <string name="app_name">CareHack</string>
 
     <string name="gender_prompt"> Gender</string>
     <string-array name="gender_arrays">
@@ -13,16 +13,30 @@
         <item>Chronic ailment</item>
     </string-array>
     <string name="doctor_prompt"> Choose a doctor</string>
-    <string name="date"> Pick a date:</string>
-    <string name="successMessage">Appointment booked successfully.</string>
-    <string name="successDate">Date: 29/11/2017</string>
-    <string name="successTime">Time: 10:30</string>
-    <string name="successDoc">Dr. Watson</string>
-    <string name="calendarSuccess">Event added to Calendar.</string>
+    <string name="date_prompt"> Pick a date:</string>
+    <string name="success_message">Appointment booked successfully.</string>
+    <string name="success_date">Date: 29/11/2017</string>
+    <string name="success_time">Time: 10:30</string>
+    <string name="success_doc">Dr. Watson</string>
+    <string name="calendar_success">Event added to Calendar.</string>
     <string name="reg">Patient Registration</string>
     <string name="auto_booking">Auto-booking (for chronic ailment)</string>
     <string name="submit">Submit</string>
     <string name="carehack_clinic">careHack Clinic</string>
+    <string name="ok">OK</string>
+    <string name="todo">TODO</string>
+    <string name="phone_number">+91 9947000831</string>
+    <string name="book_appointment">Book appointment</string>
+    <string name="appointment_history">Appointment history</string>
+    <string name="contact_front_desk">Contact front desk</string>
+    <string name="username_prompt">Username</string>
+    <string name="password_prompt">Password</string>
+    <string name="age_prompt">Age</string>
+    <string name="next_label">Next</string>
+    <string name="address_prompt">Address</string>
+    <string name="phone_prompt">Phone</string>
+    <string name="submit_label">Submit</string>
+    <string name="enter_otp">Enter OTP</string>
     <string-array name="doctor_arrays">
         <item>Dr. Watson (General)</item>
         <item>Dr. Annie (Orthopedic)</item>
